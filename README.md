@@ -272,3 +272,9 @@ title='' #str 该剧集的标题
 - 维护者邮箱：[3101978435@qq.com](mailto:3101978435@qq.com)
 
 - 开源目的：提供私人影视库弹幕解决方案，促进 Python 命令行工具开发技术的学习与交流
+
+
+## 十、统计信息
+
+[![Star History Chart](https://api.star-history.com/svg?repos=lzq-hopego/get-danmu&type=Date)](https://www.star-history.com/#lzq-hopego/get-danmu&Date)
+
