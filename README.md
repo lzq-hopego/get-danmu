@@ -22,7 +22,7 @@ get-danmu 是一款基于 Python 开发的命令行工具，专注于**弹幕获
 - 硬件条件:  需要注意不同架构系统的第三方包的兼容情况
 
 ### 安装
-- 一键安装: `pip install get-danmu`
+- 一键安装: `pip install get-danmu`——推荐，新版本会优先分发到python第三方包管理器，有闲时间会更新github仓库代码
 - 源码安装：下载本仓库后需提前安装工具所需 Python 依赖（建议通过 pip install -r requirements.txt 安装，具体依赖列表见项目根目录的 requirements.txt 文件），然后使用`pip install .`进行安装
 
 ## 三、核心功能使用指南
