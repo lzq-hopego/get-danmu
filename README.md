@@ -120,8 +120,15 @@ get-danmu --proxy
 ```
 get-danmu --clear
 ```
+### 6. 配置备份弹幕服务器
+> 因为不可能所有弹幕都要自己手动去下载，毕竟真的很累，由于作者太懒，而有些电视剧剧集又臭又长还多又有些年头，所以无需最新的弹幕，因此部署一个danmu_api服务器，本地再运行本脚本的弹幕服务器，即可补充本地弹幕不足，比如这个剧集有55集，使用本脚本保存了3集剩下的会由本脚本让你的播放器重定向的danmu_api服务器上实现了剩下的52集的弹幕，所以会优先给你的播放器返回本地的弹幕，那么有了danmu_api是不是本脚本就无用了?错，本脚本能让你手动获取到视频最新的弹幕，也可手动一条命令更新弹幕，也可获取较老视频的弹幕，较老的视频danmu_api提供的弹幕量太少只有几百，所以本脚本的优势是和danmu_api互补，配置命令如下：
+```
+get-danmu --redirect http://[danmu_api服务器ip或域名]:9321/密钥
+get-danmu --redirect http://1.1.1.1:9321/getdanmu         #示例
+get-danmu --redirect   #不传递参数,则清除配置
+```
 
-### 6. 弹幕服务搭建（核心功能）
+### 7. 弹幕服务搭建（核心功能）
 
 搭建与「[api.dandanplay.net](https://api.dandanplay.net)」兼容的弹幕服务器，解决私人影视库（电影 / 电视剧）的弹幕需求（[api.dandanplay.net](https://api.dandanplay.net) 仅覆盖动漫且更新不及时）。
 
@@ -241,7 +248,7 @@ title='' #str 该剧集的标题
 
 
 ## 五、更新记录
-
+- 2025-10-28：发布 v0.3.4版本  增加对danmu_api的支持，修正本地数据管理时连续操作后丢失数据的bug
 - 2025-10-12：发布 v0.3.2 版本 修正api更新处理逻辑，修正web服务返回数据的标准化使得更多的平台支持
 - 2025-10-11：发布 v0.2.0 版本 修正core处理逻辑
 - 2025-10-10：发布 v0.0.1 版本（初代版本），完成核心功能
@@ -258,12 +265,12 @@ title='' #str 该剧集的标题
 
 5. 除去上述要求外，还需遵守本项目的开源协议
 
-## 八、致谢
+## 七、致谢
 - 核心弹幕解析接口-优酷接口思路来源于 [DanmuTools](https://github.com/Hamlin-Xu/DanmuTools)
 - 弹幕数据标准化采用[dandanplay](https://api.dandanplay.net/swagger/index.html)
 
 
-## 九、项目信息
+## 八、项目信息
 
 - 项目创建者：李先生
 
@@ -274,7 +281,7 @@ title='' #str 该剧集的标题
 - 开源目的：提供私人影视库弹幕解决方案，促进 Python 命令行工具开发技术的学习与交流
 
 
-## 十、统计信息
+## 九、统计信息
 
 [![Star History Chart](https://api.star-history.com/svg?repos=lzq-hopego/get-danmu&type=Date)](https://www.star-history.com/#lzq-hopego/get-danmu&Date)
 
