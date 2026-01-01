@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="get_danmu",
-    version="0.3.2",
+    version="0.3.9",
     author="Li Zhan Qi",
     author_email="3101978435@qq.com",
     description="可以下载弹幕的包哦",
@@ -21,6 +21,9 @@ setuptools.setup(
         "Environment :: Console", 
     ],
     packages=setuptools.find_packages(),
+    package_data={'':['templates/*.html'
+                      ,'static/css/fonts/*.*','static/css/font-awesome/*.css'
+                      ,'static/js/*.js']},
     python_requires=">=3.7",
     install_requires=[
         "flask",
@@ -30,7 +33,8 @@ setuptools.setup(
         "rich",
         "sqlalchemy",
         "ujson",
-        "xmltodict"
+        "lxml",
+        "prompt-toolkit"
     ],
     entry_points={
         'console_scripts': ["get-danmu=get_danmu.__main__:main",
