@@ -5,4 +5,5 @@ requests
 rich
 sqlalchemy
 ujson
-xmltodict
+lxml
+prompt-toolkit
