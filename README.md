@@ -199,15 +199,16 @@ get-dm --update
 
 ## 四、在你的代码中调用
 > 本库可以在你的代码中导入运行
--  一共提供了五个运行接口
+-  一共提供了六个运行接口
 
 - 导入解析核心
 ```
 from get_danmu.api.danmu_tx import TencentFetcher
-from get_danmu.api.danmu_iqiyi import IqiyiFetcher
+from get_danmu.api.danmu_iqiyi import IqiyiFetcher  #或from get_danmu.api.danmu_iqiyi_pro import IqiyiFetcher支持iqiyi最新加密但无法完全解密，大约1万7千条弹幕会损失4千条左右，当标准解析核心无法使用时可调用本解析核心
 from get_danmu.api.danmu_mgtv import MgtvFetcher
 from get_danmu.api.danmu_bilibili import BilibiliFetcher
 from get_danmu.api.danmu_youku import YoukuFetcher
+
 ```
 - 初始化
 ```
