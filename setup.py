@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="get_danmu",
-    version="0.3.9",
+    version="0.3.12",
     author="Li Zhan Qi",
     author_email="3101978435@qq.com",
     description="可以下载弹幕的包哦",
