@@ -7,3 +7,4 @@ sqlalchemy
 ujson
 lxml
 prompt-toolkit
+aiohttp
