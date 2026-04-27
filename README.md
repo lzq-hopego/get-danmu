@@ -208,7 +208,7 @@ from get_danmu.api.danmu_iqiyi import IqiyiFetcher  #或from get_danmu.api.danmu
 from get_danmu.api.danmu_mgtv import MgtvFetcher
 from get_danmu.api.danmu_bilibili import BilibiliFetcher
 from get_danmu.api.danmu_youku import YoukuFetcher
-
+import asyncio
 ```
 - 初始化
 ```
@@ -234,13 +234,15 @@ bili=BilibiliFetcher(url=url,proxy=proxies,cookie=cookies)
 
 - run获取视频弹幕
 ```
-danmu_data,duration,title=tx.run(
-    start_second=self.start_second,
-    end_second=self.end_second,
-    progress_callback=update_progress  
+danmu_data,duration,title=asyncio.run(
+    tx.run(
+        start_second=self.start_second,
+        end_second=self.end_second,
+        progress_callback=update_progress  
+    )
 )
 ```
-> 各个接口都有run方法，所传递的参数都一致
+> 各个接口都有run方法，所传递的参数都一致,0.3.13版本后run必须以asyncio异步运行
 > start_second为开始时间，即从哪一秒开始，单位秒，类型为int，可以省略为None，默认为从第0秒开始
 > end_second为结束时间，即从哪一秒结束，单位秒，类型为int，可以省略为None，默认为从剧集最后一秒结束
 > progress_callback回调函数，会返回当前进度current和总任务个数total，自己计算一下就有进度的百分比了，可以省略为None
@@ -261,7 +263,7 @@ title='' #str 该剧集的标题
 
 
 ## 五、更新记录
-- 2026-4-26: 发布 v0.3.12版本 修复无法获取tx弹幕的bug,修改tx弹幕获取剧集逻辑使获取的剧集命名更准确
+- 2026-4-27: 发布 v0.3.12版本 增加aiohttp三方依赖,所有接口的run函数采用asyncio异步方式运行提速约50%
 - 2026-1-1: 发布 v0.3.9版本 新年快乐，老版本如果使用了弹幕服务器功能更新后需要先执行`get-danmu --update`进行升级数据库,修复Hills查找备份服务器弹幕时不精准的问题，修复bilibili非番剧或非剧集时无法保存或命名错误的问题，移除bilibili2实验解析模块，增加了web管理，增加了数据库升级，增加了windows系统代理检测，增加了iqiyi微剧弹幕批量下载，增加iqiyi_pro解析核心,新增prompt-toolkit依赖用于命令行交互,新增支持netscape类型和json类型cookie
 - 2025-10-28：发布 v0.3.4版本  增加对danmu_api的支持，修正本地数据管理时连续操作后丢失数据的bug
 - 2025-10-12：发布 v0.3.2 版本 修正api更新处理逻辑，修正web服务返回数据的标准化使得更多的平台支持
