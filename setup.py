@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="get_danmu",
-    version="0.3.12",
+    version="0.3.13",
     author="Li Zhan Qi",
     author_email="3101978435@qq.com",
     description="可以下载弹幕的包哦",
@@ -34,7 +34,8 @@ setuptools.setup(
         "sqlalchemy",
         "ujson",
         "lxml",
-        "prompt-toolkit"
+        "prompt-toolkit",
+        "aiohttp"
     ],
     entry_points={
         'console_scripts': ["get-danmu=get_danmu.__main__:main",
