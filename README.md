@@ -2,6 +2,30 @@
 
 get-danmu 是一款基于 Python 开发的命令行工具，专注于**弹幕获取、本地存储与服务搭建**，支持腾讯爱奇艺优酷B站芒果平台，可满足私人影视库的弹幕需求。核心特性包括多平台适配、灵活的数据存储、高效的弹幕服务，适合个人学习与私人使用。
 
+# 本项目衍生
+Danmuku 通过web网页管理和添加以及权限管理弹幕，与本命令行比有点在于可视化操作便捷可docker部署权限限制清晰自动更新也可对接danmu_api项目实现点点即可添加弹幕到本地，缺点无法手动指定获取视频时长区间
+
+- 拉取docker镜像
+```
+docker pull hopego/danmuku:latest
+```
+- run
+```
+docker run -d \
+  --name danmuku \
+  --restart unless-stopped \
+  -p 8000:80 \
+  -e TZ=Asia/Shanghai \
+  -e DJANGO_SUPERUSER_USERNAME=admin \      
+  -e DJANGO_SUPERUSER_PASSWORD=admin123456 \
+  -v D:\danmuku\data:/app/data \
+  -v D:\danmuku\data\danmu_data:/app/static/danmu_data \
+  -v D:\danmuku\data\logs:/app/logs \
+  -v D:\danmuku\data\keys:/app/keys \
+  hopego/danmuku:latest
+```
+> 其中DJANGO_SUPERUSER_USERNAME和DJANGO_SUPERUSER_PASSWORD为超级管理员用户名和密码，必须要加，否则数据库中无任何用户将无法登录后台
+
 ## 一、支持平台
 
 已适配 5 大主流视频平台，覆盖大部分影视内容场景：
